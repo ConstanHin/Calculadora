@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 public class Vista extends JFrame {
 	
 	private JPanel contentPane;
-	private JTextField txtField_pantalla;
+	private JTextField pantalla;
 	
 	public ArrayList<JButton> botones =  new ArrayList<JButton>();
 	
@@ -33,11 +33,12 @@ public class Vista extends JFrame {
 		contentPane.setLayout(null);
 		
 		// Pantalla
-		txtField_pantalla = new JTextField();
-		txtField_pantalla.setBounds(97, 38, 280, 60);
-		contentPane.add(txtField_pantalla);
-		txtField_pantalla.setColumns(10);
-		//txtField_pantalla.setEditable(false);
+		pantalla = new JTextField();
+		pantalla.setBounds(97, 38, 280, 60);
+		pantalla.setHorizontalAlignment(JTextField.RIGHT);
+		pantalla.setEditable(false);
+		contentPane.add(pantalla);
+		pantalla.setColumns(10);
 		
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		setTitle("Calculadora");
@@ -45,7 +46,6 @@ public class Vista extends JFrame {
 		
 		btn_1 = new JButton("1");
 		contentPane.add(btn_1);
-		System.out.println(this);
 		btn_1.setBounds(97, 363, 62, 45);
 		botones.add(btn_1);
 		
@@ -109,7 +109,7 @@ public class Vista extends JFrame {
 		btn_igual.setBounds(315, 419, 62, 45);
 		contentPane.add(btn_igual);
 		
-		btn_mas = new JButton("+");
+		this.btn_mas = new JButton("+");
 		btn_mas.setBackground(Color.GRAY);
 		btn_mas.setBounds(315, 363, 62, 45);
 		contentPane.add(btn_mas);
@@ -129,12 +129,12 @@ public class Vista extends JFrame {
 		btn_division.setBounds(315, 195, 62, 45);
 		contentPane.add(btn_division);
 		
-		btn_raiz_cuadrada = new JButton("Raíz Cua");
+		btn_raiz_cuadrada = new JButton("√");
 		btn_raiz_cuadrada.setBackground(Color.GRAY);
 		btn_raiz_cuadrada.setBounds(242, 195, 62, 45);
 		contentPane.add(btn_raiz_cuadrada);
 		
-		btn_al_cuadrdo = new JButton("x2");
+		btn_al_cuadrdo = new JButton("x²");
 		btn_al_cuadrdo.setBackground(Color.GRAY);
 		btn_al_cuadrdo.setBounds(170, 195, 62, 45);
 		contentPane.add(btn_al_cuadrdo);
@@ -159,7 +159,7 @@ public class Vista extends JFrame {
 		btn_c.setBounds(241, 139, 62, 45);
 		contentPane.add(btn_c);
 		
-		btn_borrar = new JButton("Borrar");
+		btn_borrar = new JButton("⌫");
 		btn_borrar.setBackground(Color.GRAY);
 		btn_borrar.setBounds(315, 139, 62, 45);
 		contentPane.add(btn_borrar);
@@ -173,10 +173,8 @@ public class Vista extends JFrame {
 	 * @return the txtField_pantalla
 	 */
 	public JTextField getTxtField_pantalla() {
-		return txtField_pantalla;
+		return pantalla;
 	}
-
-
 
 
 
@@ -184,7 +182,7 @@ public class Vista extends JFrame {
 	 * @param txtField_pantalla the txtField_pantalla to set
 	 */
 	public void setTxtField_pantalla(JTextField txtField_pantalla) {
-		this.txtField_pantalla = txtField_pantalla;
+		this.pantalla = txtField_pantalla;
 	}
 		
 		
