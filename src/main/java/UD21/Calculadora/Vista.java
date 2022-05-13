@@ -190,78 +190,12 @@ public class Vista extends JFrame implements ActionListener {
 		btn_borrar.setBounds(315, 139, 62, 45);
 		contentPane.add(btn_borrar);
 	}
-		
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-		
-		if (e.getSource() == btn_1) {
-			txtField_pantalla.setText("1");
-			secuenciaNum("1");
-			
-		}
-		else if (e.getSource() == btn_2) {
-			txtField_pantalla.setText("2");
-			secuenciaNum("2");
-		}
-		
-		else if (e.getSource() == btn_mas) {
-			txtField_pantalla.setText("");
-			recogerPrimerOperador("+");
-			
-		}
-		
-			 
-		}
-		
-		
-		
-		//Metodos
-		
-		public void secuenciaNum(String numero) {
-			secuencia += numero;
-			txtField_pantalla.setText(secuencia);
-			
-
-		}
-		
-		public void recogerPrimerOperador(String operacion) {
-			 String operador1 = String.valueOf(txtField_pantalla.getText()); 
-			 secuencia = "";
-			 operador = operacion;
-		
-		}
-		
-		
-		public double suma() {
-			double suma = 0;
-			suma = operador1 + operador2;
-			
-			return suma;
-			
-		}
-		
-		public double resta() {
-			double resta = 0;
-			resta = operador1 - operador2;
-			
-			return resta;
-		}
-		
-		public double multiplicacion() {
-			double multiplicacion = 0;
-			multiplicacion = operador1 * operador2;
-			
-			return multiplicacion;
-		}
-		
-		public double division() {
-			double division = 0;
-			division = operador1/operador2;
-			
-			return division;
-			
-		}
+	
 }
+		
+
+		
+
+
 
 
