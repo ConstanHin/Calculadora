@@ -22,6 +22,9 @@ public class Vista extends JFrame implements ActionListener {
 	private double operador1 = 0;
 	private double operador2 = 0;
 	
+	public String secuencia = "";
+	public String operador = "";
+	
 
 	
 	public Vista() {
@@ -194,9 +197,18 @@ public class Vista extends JFrame implements ActionListener {
 		
 		if (e.getSource() == btn_1) {
 			txtField_pantalla.setText("1");
+			secuenciaNum("1");
+			
 		}
 		else if (e.getSource() == btn_2) {
-			txtField_pantalla.setText("2");	
+			txtField_pantalla.setText("2");
+			secuenciaNum("2");
+		}
+		
+		else if (e.getSource() == btn_mas) {
+			txtField_pantalla.setText("");
+			recogerPrimerOperador("+");
+			
 		}
 		
 			 
@@ -205,6 +217,21 @@ public class Vista extends JFrame implements ActionListener {
 		
 		
 		//Metodos
+		
+		public void secuenciaNum(String numero) {
+			secuencia += numero;
+			txtField_pantalla.setText(secuencia);
+			
+
+		}
+		
+		public void recogerPrimerOperador(String operacion) {
+			 String operador1 = String.valueOf(txtField_pantalla.getText()); 
+			 secuencia = "";
+			 operador = operacion;
+		
+		}
+		
 		
 		public double suma() {
 			double suma = 0;
