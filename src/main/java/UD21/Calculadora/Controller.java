@@ -16,7 +16,7 @@ public class Controller {
 	private String secuencia = "";
 	private String operador = "";
 
-	// Controller
+	// Constructor
 	public Controller() {
 	}
 
