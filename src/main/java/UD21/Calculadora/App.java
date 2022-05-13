@@ -26,6 +26,7 @@ public class App
     	controller.listenerPorcentajeBtn();
     	controller.listenerAlCuadradoBtn();
     	controller.listenerPosNegBtn();
+    	controller.listenerPuntoBtn();
     	
     	
     }

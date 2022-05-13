@@ -442,30 +442,29 @@ public class Controller {
 		});
 	}
 	
-//	/**
-//	 * Accion btn punto
-//	 */
-//	public void listenerPuntoBtn() {
-//		vista.btn_punto.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				try {
-//					
-//					double resultado = operando2*-1;
-//					
-//					operando2 = resultado;
-//					
-//					String resString = "" +resultado;
-//					
-//					vista.getTxtField_pantalla().setText(resString);
-//					
-//				} catch (Exception e2) {
-//					System.out.println(e2.getMessage());
-//				}
-//			}
-//		});
-//	}
+	/**
+	 * Accion btn punto
+	 */
+	public void listenerPuntoBtn() {
+		vista.btn_punto.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					
+					if (secuencia.indexOf('.') < 0) {
+						secuencia += ".";
+					}
+					
+					
+					vista.getTxtField_pantalla().setText(secuencia);
+					
+				} catch (Exception e2) {
+					System.out.println(e2.getMessage());
+				}
+			}
+		});
+	}
 	
 	
 	
