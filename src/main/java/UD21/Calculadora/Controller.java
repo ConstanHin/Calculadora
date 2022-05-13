@@ -12,6 +12,8 @@ public class Controller {
 	private Vista vista;
 	private double operador1 = 0;
 	private double operador2 = 0;
+	private String secuencia = "";
+	private String operador = "";
 	
 	// Controller
 	public Controller() {
@@ -68,6 +70,36 @@ public class Controller {
 		}
 		
 	}
+	
+//	public void secuenciaNum(String numero) {
+//		secuencia += numero;
+//		txtField_pantalla.setText(secuencia);
+//		
+//
+//	}
+	
+//	else if (e.getSource() == btn_mas) {
+//		txtField_pantalla.setText("");
+//		recogerPrimerOperador("+");
+//		
+//	}
+	
+	// Recoger primer operador
+//	public void recogerPrimerOperador(String operacion) {
+//		
+//		
+//		try {
+//			double operador1 = Double.parseDouble(txtField_pantalla.getText()); 
+//			 operador = operacion;
+//			 System.out.println(operador1 + operador);
+//			
+//		} catch (Exception e) {
+//			System.out.println(e);
+//			
+//		}
+//		
+//	
+//	}
 
 
 }
