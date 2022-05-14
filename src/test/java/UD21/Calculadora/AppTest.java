@@ -161,7 +161,52 @@ public class AppTest
     	assertEquals(controller.getSecuencia(), "0");
     }
     
+    @Test
+    public void testRaizCuadradaBtnClick() {
+    	controller.setOperando2(9);
+    	double esperado = 3.0;
+    	controller.onRaizCuadradaBtnClick();
+    	assertEquals(esperado, controller.getResultado(), 3);
+    }
     
+    @Test
+    public void testInvertirBtnClick() {
+    	controller.setOperando2(5);
+    	controller.onNumInvertidoBtnClick();
+    	assertEquals(0.2, controller.getResultado(), 0.2);
+    }
+    
+    @Test
+    public void testPorcentajeBtnClick() {
+    	controller.setOperando2(10);
+    	controller.onPorcentajeBtnClick();
+    	double esperado = 0.1;
+    	assertEquals(esperado, controller.getResultado(), esperado);
+    }
+    
+    @Test
+    public void testAlCuadradoBtnClick() {
+    	controller.setOperando2(10);
+    	controller.onAlCuadradoBtnClick();
+    	double esperado = 100;
+    	assertEquals(esperado, controller.getResultado(), esperado);
+    }
+    
+    @Test
+    public void testOnPosNegBtnClick() {
+    	controller.setOperando2(10);
+    	controller.onPosNegBtnClick();
+    	String esperado = "-10";
+    	assertEquals(esperado, controller.getSecuencia());
+    }
+    
+    @Test
+    public void testOnPuntoBtnClick() {
+    	controller.setSecuencia("10");
+    	controller.onPuntoBtnClick();
+    	String esperado = "10.";
+    	assertEquals(esperado, controller.getSecuencia());
+    }
     
     
 }

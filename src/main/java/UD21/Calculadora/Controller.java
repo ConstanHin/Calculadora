@@ -541,9 +541,9 @@ public class Controller {
 
 			operando2 = resultado;
 
-			String resString = "" + resultado;
+			secuencia = "" + resultado;
 
-			vista.getTxtField_pantalla().setText(resString);
+			vista.getTxtField_pantalla().setText(secuencia);
 
 		} catch (Exception e2) {
 			System.out.println(e2.getMessage());
