@@ -2,6 +2,7 @@ package UD21.Calculadora;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -78,25 +79,87 @@ public class AppTest
     	controller.listenerMenosBtn();
     }
     
-    @Test
-    public void testOnEqualBtnClick() {
-    	// Caso suma
-    	controller.setOperador("+");
+    @ParameterizedTest
+    @ValueSource(strings = {"+", "-", "/", "*", "30"})
+    public void testOnEqualBtnClick(String operador) {
+    	controller.setOperador(operador);
     	controller.onEqualBtnClick();
     }
     
     @ParameterizedTest
-    @ValueSource(strings = {"a"})
+    @ValueSource(strings = {"a", "5", "5.5", "0.5", "-30"})
     public void testMasBtnClick(String candidate) {
     	controller.setSecuencia(candidate);
     	controller.onMasBtnClick();
     	assertEquals(controller.getOperador(), "+");
-//    	assertEquals(controller.getSecuencia(), "");
+    	assertEquals(controller.getSecuencia(), "");
+    }
+    
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "5", "5.5", "0.5", "-30"})
+    public void testMenosBtnClick(String candidate) {
+    	controller.setSecuencia(candidate);
+    	controller.onMenosBtnClick();
+    	assertEquals(controller.getOperador(), "-");
+    	assertEquals(controller.getSecuencia(), "");
+    }
+    
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "5", "5.5", "0.5", "-30"})
+    public void testMultiplicarBtnClick(String candidate) {
+    	controller.setSecuencia(candidate);
+    	controller.onMultiplicarBtnClick();
+    	assertEquals(controller.getOperador(), "*");
+    	assertEquals(controller.getSecuencia(), "");
+    }
+    
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "5", "5.5", "0.5", "-30", "0"})
+    public void testDividirBtnClick(String candidate) {
+    	controller.setSecuencia(candidate);
+    	controller.onDividirBtnClick();
+    	assertEquals(controller.getOperador(), "/");
+    	assertEquals(controller.getSecuencia(), "");
     }
     
     
+    @Test
+    public void testClearBtnClick() {
+    	controller.onClearBtnClick();
+    	assertEquals(0, controller.getOperando1(), 0);
+    	assertEquals(0, controller.getOperando2(), 0);
+    	assertEquals(controller.getSecuencia(), "");
+    }
     
+//    @ParameterizedTest
+//    @ValueSource(strings = {"a", "5", "5.5", "0.5", "-30", "0"})
+//    public void testBorrarBtnClick(String candidate) {
+//    	controller.setSecuencia(candidate);
+//    	controller.onDividirBtnClick();
+//    	assertEquals(controller.getOperador(), "/");
+//    	assertEquals(controller.getSecuencia(), "");
+//    }
     
+    @Test
+    public void testBorrarBtnClick() {
+    	controller.setSecuencia("334");
+    	controller.onBorrarBtnClick();
+    	assertEquals(controller.getSecuencia(), "33");
+    }
+    
+    @Test
+    public void testBorrarBtnClick2() {
+    	controller.setSecuencia("");
+    	controller.onBorrarBtnClick();
+    	assertEquals(controller.getSecuencia(), "");
+    }
+    
+    @Test
+    public void testCeBtnClick() {
+    	controller.setSecuencia("123");
+    	controller.onCeBtnClick();
+    	assertEquals(controller.getSecuencia(), "0");
+    }
     
     
     

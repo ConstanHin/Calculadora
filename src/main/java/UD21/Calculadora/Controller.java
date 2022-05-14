@@ -106,11 +106,20 @@ public class Controller {
 		this.operador = operador;
 	}
 
+	/**
+	 * @return the resultado
+	 */
+	public double getResultado() {
+		return resultado;
+	}
+
 	// Methods
 	// Anadir listeners a los botones
-
 	// Anadir color de background a los botones
 
+	/**
+	 * Listners botones numeros
+	 */
 	public void listenerNumberBtn() {
 		for (int i = 0; i < vista.botones.size(); i++) {
 			JButton boton = vista.botones.get(i);
@@ -289,7 +298,7 @@ public class Controller {
 			}
 		});
 	}
-	
+
 	// Refactorizado de las acciones de los botones para hacer unit tests
 
 	/**
@@ -330,6 +339,7 @@ public class Controller {
 				break;
 
 			default:
+				resultado = 0;
 				break;
 			}
 
@@ -350,10 +360,13 @@ public class Controller {
 		try {
 			operador = "+";
 			operando1 = Double.parseDouble(secuencia);
-			secuencia = "";
 
 		} catch (Exception e2) {
 			System.out.println(e2.getMessage());
+
+			operando1 = 0;
+		} finally {
+			secuencia = "";
 		}
 	}
 
@@ -364,10 +377,13 @@ public class Controller {
 		try {
 			operador = "-";
 			operando1 = Double.parseDouble(secuencia);
-			secuencia = "";
 
 		} catch (Exception e2) {
 			System.out.println(e2.getMessage());
+			operando1 = 0;
+		} finally {
+
+			secuencia = "";
 		}
 	}
 
@@ -382,6 +398,10 @@ public class Controller {
 
 		} catch (Exception e2) {
 			System.out.println(e2.getMessage());
+			operando1 = 0;
+		} finally {
+
+			secuencia = "";
 		}
 	}
 
@@ -392,10 +412,13 @@ public class Controller {
 		try {
 			operador = "/";
 			operando1 = Double.parseDouble(secuencia);
-			secuencia = "";
 
 		} catch (Exception e2) {
 			System.out.println(e2.getMessage());
+			operando1 = 0;
+			operando2 = 0;
+		} finally {
+			secuencia = "";
 		}
 	}
 
@@ -403,17 +426,13 @@ public class Controller {
 	 * Accion click en el boton Clear
 	 */
 	public void onClearBtnClick() {
-		try {
-			operando1 = 0;
-			operando2 = 0;
-			resultado = 0;
-			secuencia = "";
-			operador = "";
-			vista.getTxtField_pantalla().setText("");
+		operando1 = 0;
+		operando2 = 0;
+		resultado = 0;
+		secuencia = "";
+		operador = "";
+		vista.getTxtField_pantalla().setText("");
 
-		} catch (Exception e2) {
-			System.out.println(e2.getMessage());
-		}
 	}
 
 	/**
@@ -436,16 +455,12 @@ public class Controller {
 	 * Accion click en el boton CE
 	 */
 	public void onCeBtnClick() {
-		try {
 			secuencia = "0";
 
 			operando2 = 0;
 
 			vista.getTxtField_pantalla().setText(secuencia);
 
-		} catch (Exception e2) {
-			System.out.println(e2.getMessage());
-		}
 	}
 
 	/**
