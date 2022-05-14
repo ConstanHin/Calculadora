@@ -68,6 +68,45 @@ public class AppTest
     
     }
     
+    @Test
+    public void testResta() {
+    	controller.resta();
+    	
+    
+    }
+    
+    @Test
+    public void testMultiplicacion() {
+    	controller.multiplicacion();
+    	
+    
+    }
+    
+    @Test
+    public void testdivison() {
+    	controller.division();
+    	
+    
+    }
+    
+    @Test
+    public void testListener() {
+    	controller.listenerNumberBtn();
+    }
+    
+    
+    @Test
+    public void testListenerMasButton() {
+    	controller.listenerMasButton();
+    	
+    }
+    
+    
+    @Test
+    public void testListenerMenosButton() {
+    	controller.listenerMenosBtn();
+    }
+    
     
     
     
