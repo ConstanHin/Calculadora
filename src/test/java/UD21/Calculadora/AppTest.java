@@ -44,6 +44,21 @@ public class AppTest
     	
     }
     
+    @Test
+    public void testGetSecuencia() {
+    	controller.setSecuencia("12");
+    	String secuencia = controller.getSecuencia();
+    	assertEquals(secuencia, "12");
+    	
+    	
+    }
+    
+    @Test
+    public void testGetOperador() {
+    	controller.setOperador("11");
+    	String operador = controller.getOperador();
+    	assertEquals(operador, "11");
+    }
     
     
     @Test
