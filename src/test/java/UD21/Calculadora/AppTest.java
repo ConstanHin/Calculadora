@@ -76,6 +76,15 @@ public class AppTest
     	controller.listenerMenosBtn();
     }
     
+    @Test
+    public void testOnEqualBtnClick() {
+    	// Caso suma
+    	controller.setOperador("+");
+    	controller.onEqualBtnClick();
+    }
+    
+    
+    
     
     
     

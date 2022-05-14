@@ -18,27 +18,27 @@ public class Controller {
 
 	// Constructor
 	public Controller() {
-		
+
 		// Add vista hacer la vista visible
 		this.vista = new Vista();
 		vista.setVisible(true);
-		
+
 		// Add listener a los botones
-    	listenerNumberBtn();
-    	listenerMasButton();
-    	listenerEqualBtn();
-    	listenerMenosBtn();
-    	listenerMultiplicarBtn();
-    	listenerDividirBtn();
-    	listenerClearBtn();
-    	listenerBorrarBtn();
-    	listenerCeBtn();
-    	listenerRaizCuadradaBtn();
-    	listenerNumInversoBtn();
-    	listenerPorcentajeBtn();
-    	listenerAlCuadradoBtn();
-    	listenerPosNegBtn();
-    	listenerPuntoBtn();
+		listenerNumberBtn();
+		listenerMasButton();
+		listenerEqualBtn();
+		listenerMenosBtn();
+		listenerMultiplicarBtn();
+		listenerDividirBtn();
+		listenerClearBtn();
+		listenerBorrarBtn();
+		listenerCeBtn();
+		listenerRaizCuadradaBtn();
+		listenerNumInversoBtn();
+		listenerPorcentajeBtn();
+		listenerAlCuadradoBtn();
+		listenerPosNegBtn();
+		listenerPuntoBtn();
 	}
 
 	// Setters Getters
@@ -127,18 +127,12 @@ public class Controller {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					operador = "+";
-					operando1 = Double.parseDouble(secuencia);
-					secuencia = "";
-
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onMasBtnClick();
 			}
+
 		});
 	}
-	
+
 	/**
 	 * Accion btn menos
 	 */
@@ -147,18 +141,11 @@ public class Controller {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					operador = "-";
-					operando1 = Double.parseDouble(secuencia);
-					secuencia = "";
-
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onMenosBtnClick();
 			}
 		});
 	}
-	
+
 	/**
 	 * Accion btn multiplicar
 	 */
@@ -167,295 +154,402 @@ public class Controller {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					operador = "*";
-					operando1 = Double.parseDouble(secuencia);
-					secuencia = "";
-
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onMultiplicarBtnClick();
 			}
 		});
 	}
-	
+
 	/**
 	 * Accion btn dividir
 	 */
 	public void listenerDividirBtn() {
 		vista.btn_division.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					operador = "/";
-					operando1 = Double.parseDouble(secuencia);
-					secuencia = "";
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onDividirBtnClick();
 			}
 		});
 	}
-	
+
 	/**
 	 * Ejecutar la operacion guardada del operador
 	 */
 	public void listenerEqualBtn() {
 		vista.btn_igual.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					switch (operador) {
-					case "+":
-						 resultado = operando1 + operando2;
-						
-						break;
-					case "-":
-						 resultado = operando1 - operando2;
-						
-						break;
-					case "*":
-						 resultado = operando1 * operando2;
-						
-						break;
-					case "/":
-						 resultado = operando1 / operando2;
-						
-						break;
+				onEqualBtnClick();
 
-					default:
-						break;
-					}
-					
-					
-					String resultadoS = "" +resultado;
-					operando1 = resultado;
-					operando2 = 0;
-					vista.getTxtField_pantalla().setText(resultadoS);
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
-				
 			}
 		});
 	}
-	
+
 	/**
 	 * Accion btn clear
 	 */
 	public void listenerClearBtn() {
 		vista.btn_c.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					operando1 = 0;
-					operando2 = 0;
-					resultado = 0;
-					secuencia = "";
-					operador = "";
-					vista.getTxtField_pantalla().setText("");
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onClearBtnClick();
 			}
 		});
 	}
+
 	/**
 	 * Accion btn borrar
 	 */
 	public void listenerBorrarBtn() {
 		vista.btn_borrar.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					secuencia = secuencia.substring(0, secuencia.length()-1);
-					
-					operando2 = Double.parseDouble(secuencia);
-
-					vista.getTxtField_pantalla().setText(secuencia);
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onBorrarBtnClick();
 			}
 		});
 	}
-	
+
 	/**
 	 * Accion btn CE
 	 */
 	public void listenerCeBtn() {
 		vista.btn_ce.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					secuencia = "0";
-					
-					operando2 = 0;
-
-					vista.getTxtField_pantalla().setText(secuencia);
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onCeBtnClick();
 			}
 		});
 	}
-	
-	
+
 	/**
 	 * Accion btn raiz cuadrada
 	 */
 	public void listenerRaizCuadradaBtn() {
 		vista.btn_raiz_cuadrada.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					double resultado = Math.sqrt(operando2);
-					
-					String resString = "" +resultado;
-
-					vista.getTxtField_pantalla().setText(resString);
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onRaizCuadradaBtnClick();
 			}
 		});
 	}
-	
+
 	/**
 	 * Accion btn inverso
 	 */
 	public void listenerNumInversoBtn() {
 		vista.btn_uno_x.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					double resultado = 1/operando2;
-					
-					String resString = "" +resultado;
-
-					vista.getTxtField_pantalla().setText(resString);
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onNumInvertidoBtnClick();
 			}
 		});
 	}
-	
+
 	/**
 	 * Accion btn Porcentaje
 	 */
 	public void listenerPorcentajeBtn() {
 		vista.btn_tanto_por_ciento.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					double resultado = operando2*0.01;
-					
-					String resString = "" +resultado;
-					
-					vista.getTxtField_pantalla().setText(resString);
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onPorcentajeBtnClick();
 			}
 		});
 	}
-	
+
 	/**
 	 * Accion btn al cuadrado
 	 */
 	public void listenerAlCuadradoBtn() {
 		vista.btn_al_cuadrdo.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					double resultado = operando2*operando2;
-					
-					String resString = "" +resultado;
-					
-					vista.getTxtField_pantalla().setText(resString);
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onAlCuadradoBtnClick();
 			}
 		});
 	}
-	
+
 	/**
 	 * Accion btn positivo negativo
 	 */
 	public void listenerPosNegBtn() {
 		vista.btn_pos_neg.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					double resultado = operando2*-1;
-					
-					operando2 = resultado;
-					
-					String resString = "" +resultado;
-					
-					vista.getTxtField_pantalla().setText(resString);
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onPosNegBtnClick();
 			}
 		});
 	}
 	
+	// Refactorizado de las acciones de los botones para hacer unit tests
+
 	/**
 	 * Accion btn punto
 	 */
 	public void listenerPuntoBtn() {
 		vista.btn_punto.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					if (secuencia.indexOf('.') < 0) {
-						secuencia += ".";
-					}
-					
-					
-					vista.getTxtField_pantalla().setText(secuencia);
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
+				onPuntoBtnClick();
 			}
 		});
 	}
-	
-	
-	
 
-	
+	/**
+	 * Accion click en el boton igual
+	 */
+	public void onEqualBtnClick() {
+		try {
+
+			switch (operador) {
+			case "+":
+				resultado = operando1 + operando2;
+
+				break;
+			case "-":
+				resultado = operando1 - operando2;
+
+				break;
+			case "*":
+				resultado = operando1 * operando2;
+
+				break;
+			case "/":
+				resultado = operando1 / operando2;
+
+				break;
+
+			default:
+				break;
+			}
+
+			String resultadoS = "" + resultado;
+			operando1 = resultado;
+			operando2 = 0;
+			vista.getTxtField_pantalla().setText(resultadoS);
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton mas
+	 */
+	public void onMasBtnClick() {
+		try {
+			operador = "+";
+			operando1 = Double.parseDouble(secuencia);
+			secuencia = "";
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton menos
+	 */
+	public void onMenosBtnClick() {
+		try {
+			operador = "-";
+			operando1 = Double.parseDouble(secuencia);
+			secuencia = "";
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton multiplicar
+	 */
+	public void onMultiplicarBtnClick() {
+		try {
+			operador = "*";
+			operando1 = Double.parseDouble(secuencia);
+			secuencia = "";
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton dividir
+	 */
+	public void onDividirBtnClick() {
+		try {
+			operador = "/";
+			operando1 = Double.parseDouble(secuencia);
+			secuencia = "";
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton Clear
+	 */
+	public void onClearBtnClick() {
+		try {
+			operando1 = 0;
+			operando2 = 0;
+			resultado = 0;
+			secuencia = "";
+			operador = "";
+			vista.getTxtField_pantalla().setText("");
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton Borrar
+	 */
+	public void onBorrarBtnClick() {
+		try {
+			secuencia = secuencia.substring(0, secuencia.length() - 1);
+
+			operando2 = Double.parseDouble(secuencia);
+
+			vista.getTxtField_pantalla().setText(secuencia);
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton CE
+	 */
+	public void onCeBtnClick() {
+		try {
+			secuencia = "0";
+
+			operando2 = 0;
+
+			vista.getTxtField_pantalla().setText(secuencia);
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton Raiz Cuadrada
+	 */
+	public void onRaizCuadradaBtnClick() {
+		try {
+
+			double resultado = Math.sqrt(operando2);
+
+			String resString = "" + resultado;
+
+			vista.getTxtField_pantalla().setText(resString);
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton NumInvertido
+	 */
+	public void onNumInvertidoBtnClick() {
+		try {
+
+			double resultado = 1 / operando2;
+
+			String resString = "" + resultado;
+
+			vista.getTxtField_pantalla().setText(resString);
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton Porcentaje
+	 */
+	public void onPorcentajeBtnClick() {
+		try {
+
+			double resultado = operando2 * 0.01;
+
+			String resString = "" + resultado;
+
+			vista.getTxtField_pantalla().setText(resString);
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton AlCuadrado
+	 */
+	public void onAlCuadradoBtnClick() {
+		try {
+
+			double resultado = operando2 * operando2;
+
+			String resString = "" + resultado;
+
+			vista.getTxtField_pantalla().setText(resString);
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton PosNeg
+	 */
+	public void onPosNegBtnClick() {
+		try {
+
+			double resultado = operando2 * -1;
+
+			operando2 = resultado;
+
+			String resString = "" + resultado;
+
+			vista.getTxtField_pantalla().setText(resString);
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	/**
+	 * Accion click en el boton Punto
+	 */
+	public void onPuntoBtnClick() {
+		try {
+
+			if (secuencia.indexOf('.') < 0) {
+				secuencia += ".";
+			}
+
+			vista.getTxtField_pantalla().setText(secuencia);
+
+		} catch (Exception e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
 
 }
