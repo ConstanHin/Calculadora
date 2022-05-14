@@ -16,7 +16,7 @@ public class AppTest
      */
 	
 	Vista vista = new Vista();
-	Controller controller = new Controller(vista);
+	Controller controller = new Controller();
 	
     @Test
     public void shouldAnswerWithTrue()
@@ -49,8 +49,6 @@ public class AppTest
     	controller.setSecuencia("12");
     	String secuencia = controller.getSecuencia();
     	assertEquals(secuencia, "12");
-    	
-    	
     }
     
     @Test
@@ -58,35 +56,6 @@ public class AppTest
     	controller.setOperador("11");
     	String operador = controller.getOperador();
     	assertEquals(operador, "11");
-    }
-    
-    
-    @Test
-    public void testSuma() {
-    	controller.suma();
-    	
-    
-    }
-    
-    @Test
-    public void testResta() {
-    	controller.resta();
-    	
-    
-    }
-    
-    @Test
-    public void testMultiplicacion() {
-    	controller.multiplicacion();
-    	
-    
-    }
-    
-    @Test
-    public void testdivison() {
-    	controller.division();
-    	
-    
     }
     
     @Test

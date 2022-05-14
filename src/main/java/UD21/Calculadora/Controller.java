@@ -41,12 +41,7 @@ public class Controller {
     	listenerPuntoBtn();
 	}
 
-	// Setter
-	public void setVista(Vista vista) {
-		this.vista = vista;
-	}
-
-	// Metodos
+	// Setters Getters
 
 	/**
 	 * @return the vista
@@ -111,6 +106,7 @@ public class Controller {
 		this.operador = operador;
 	}
 
+	// Methods
 	// Anadir listeners a los botones
 
 	// Anadir color de background a los botones
