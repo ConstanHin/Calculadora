@@ -7,6 +7,8 @@ import javax.swing.border.EmptyBorder;
 
 import java.util.ArrayList;
 import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JPanel;
 
 public class Vista extends JFrame {
@@ -35,6 +37,7 @@ public class Vista extends JFrame {
 		// Pantalla
 		pantalla = new JTextField();
 		pantalla.setBounds(97, 38, 280, 60);
+		pantalla.setFont(new Font(Font.SANS_SERIF, 1, 20));
 		pantalla.setHorizontalAlignment(JTextField.RIGHT);
 		pantalla.setEditable(false);
 		contentPane.add(pantalla);
@@ -95,12 +98,14 @@ public class Vista extends JFrame {
 		contentPane.add(btn_0);
 		
 		btn_pos_neg = new JButton("+/-");
-		btn_pos_neg.setBackground(Color.GRAY);
+		btn_pos_neg.setBackground(Color.DARK_GRAY);
+		btn_pos_neg.setForeground(Color.white);
 		btn_pos_neg.setBounds(97, 419, 62, 45);
 		contentPane.add(btn_pos_neg);
 		
 		btn_punto = new JButton(".");
-		btn_punto.setBackground(Color.GRAY);
+		btn_punto.setBackground(Color.DARK_GRAY);
+		btn_punto.setForeground(Color.white);
 		btn_punto.setBounds(242, 419, 62, 45);
 		contentPane.add(btn_punto);
 		
