@@ -18,6 +18,27 @@ public class Controller {
 
 	// Constructor
 	public Controller() {
+		
+		// Add vista hacer la vista visible
+		this.vista = new Vista();
+		vista.setVisible(true);
+		
+		// Add listener a los botones
+    	listenerNumberBtn();
+    	listenerMasButton();
+    	listenerEqualBtn();
+    	listenerMenosBtn();
+    	listenerMultiplicarBtn();
+    	listenerDividirBtn();
+    	listenerClearBtn();
+    	listenerBorrarBtn();
+    	listenerCeBtn();
+    	listenerRaizCuadradaBtn();
+    	listenerNumInversoBtn();
+    	listenerPorcentajeBtn();
+    	listenerAlCuadradoBtn();
+    	listenerPosNegBtn();
+    	listenerPuntoBtn();
 	}
 
 	// Setter
@@ -88,36 +109,6 @@ public class Controller {
 	 */
 	public void setOperador(String operador) {
 		this.operador = operador;
-	}
-
-	private double suma() {
-		double suma = 0;
-		suma = operando1 + operando2;
-
-		return suma;
-
-	}
-
-	public double resta() {
-		double resta = 0;
-		resta = operando1 - operando2;
-
-		return resta;
-	}
-
-	public double multiplicacion() {
-		double multiplicacion = 0;
-		multiplicacion = operando1 * operando2;
-
-		return multiplicacion;
-	}
-
-	public double division() {
-		double division = 0;
-		division = operando1 / operando2;
-
-		return division;
-
 	}
 
 	// Anadir listeners a los botones
