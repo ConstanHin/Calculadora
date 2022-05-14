@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Unit test for simple App.
@@ -81,6 +83,15 @@ public class AppTest
     	// Caso suma
     	controller.setOperador("+");
     	controller.onEqualBtnClick();
+    }
+    
+    @ParameterizedTest
+    @ValueSource(strings = {"a"})
+    public void testMasBtnClick(String candidate) {
+    	controller.setSecuencia(candidate);
+    	controller.onMasBtnClick();
+    	assertEquals(controller.getOperador(), "+");
+//    	assertEquals(controller.getSecuencia(), "");
     }
     
     
