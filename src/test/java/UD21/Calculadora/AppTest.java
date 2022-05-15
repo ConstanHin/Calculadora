@@ -196,7 +196,7 @@ public class AppTest
     public void testOnPosNegBtnClick() {
     	controller.setOperando2(10);
     	controller.onPosNegBtnClick();
-    	String esperado = "-10";
+    	String esperado = "-10.0";
     	assertEquals(esperado, controller.getSecuencia());
     }
     
